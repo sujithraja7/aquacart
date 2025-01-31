@@ -1,0 +1,707 @@
+/* Glossy Background */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #00b4db 0%,
+        #0083b0 100%
+    );
+    position: relative;
+    overflow-x: hidden;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Water Waves */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 60%),
+        linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 100%);
+    animation: waterMove 8s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes waterMove {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* Swimming Fish */
+.fish-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.fish {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: swim 15s linear infinite;
+}
+
+.fish::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+    transform: translateY(-50%);
+}
+
+.fish:nth-child(1) {
+    top: 20%;
+    left: -50px;
+    animation-delay: 0s;
+}
+
+.fish:nth-child(2) {
+    top: 40%;
+    left: -50px;
+    animation-delay: 3s;
+    transform: scale(0.8);
+}
+
+.fish:nth-child(3) {
+    top: 60%;
+    left: -50px;
+    animation-delay: 6s;
+    transform: scale(1.2);
+}
+
+.fish:nth-child(4) {
+    top: 80%;
+    left: -50px;
+    animation-delay: 9s;
+    transform: scale(0.9);
+}
+
+.fish:nth-child(5) {
+    top: 30%;
+    left: -50px;
+    animation-delay: 12s;
+    transform: scale(1.1);
+}
+
+@keyframes swim {
+    0% {
+        left: -50px;
+        transform: scaleX(1);
+    }
+    49% {
+        transform: scaleX(1);
+    }
+    50% {
+        left: 100%;
+        transform: scaleX(-1);
+    }
+    99% {
+        transform: scaleX(-1);
+    }
+    100% {
+        left: -50px;
+        transform: scaleX(1);
+    }
+}
+
+/* Bubbles */
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: bubble 8s linear infinite;
+    pointer-events: none;
+}
+
+.bubble:nth-child(1) { width: 20px; height: 20px; left: 10%; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 15px; height: 15px; left: 30%; animation-delay: 2s; }
+.bubble:nth-child(3) { width: 25px; height: 25px; left: 50%; animation-delay: 4s; }
+.bubble:nth-child(4) { width: 18px; height: 18px; left: 70%; animation-delay: 6s; }
+.bubble:nth-child(5) { width: 22px; height: 22px; left: 90%; animation-delay: 8s; }
+
+@keyframes bubble {
+    0% {
+        bottom: -100px;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        bottom: 100vh;
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+}
+
+/* Shop Container with Glossy Effect */
+.shop-container {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #001f3f 0%,
+        #003366 25%,
+        #004080 50%,
+        #003366 75%,
+        #001f3f 100%
+    );
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    animation: oceanDepth 20s ease-in-out infinite;
+}
+
+@keyframes oceanDepth {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Coral Reef Background */
+.shop-container::before {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30vh;
+    background: linear-gradient(
+        0deg,
+        rgba(255, 127, 80, 0.1) 0%,
+        rgba(255, 160, 122, 0.05) 40%,
+        transparent 100%
+    );
+    filter: blur(4px);
+    animation: coralGlow 8s ease-in-out infinite;
+}
+
+@keyframes coralGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* Floating Particles */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 15s infinite linear;
+}
+
+.particle:nth-child(2n) {
+    width: 6px;
+    height: 6px;
+    animation-duration: 20s;
+    animation-delay: -5s;
+}
+
+.particle:nth-child(3n) {
+    width: 3px;
+    height: 3px;
+    animation-duration: 25s;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) translateX(-10px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(50vh) translateX(10px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0) translateX(-10px);
+        opacity: 0;
+    }
+}
+
+/* Shop Cards Container */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Shop Card Styles */
+.shop-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.shop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.shop-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.shop-card:hover::before {
+    left: 100%;
+}
+
+/* Product Image Styles */
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.shop-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+/* Product Info Styles */
+.product-info {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+/* Button Styles */
+.shop-button {
+    background: linear-gradient(45deg, #2196F3, #00BCD4);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.shop-button:hover {
+    background: linear-gradient(45deg, #00BCD4, #2196F3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Search Bar Styles */
+.search-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    margin: 2rem auto;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+/* Category Filter Styles */
+.filter-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.filter-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Loading Animation */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: #2196F3;
+    animation: spin 1s ease-in-out infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Search and Filter Container */
+.filter-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+.MuiInputBase-root {
+    background-color: white !important;
+    border-radius: 8px !important;
+    height: 48px;
+    overflow: hidden;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #1976d2 !important;
+    border-width: 2px;
+}
+
+/* Select Dropdowns */
+.MuiSelect-select {
+    height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    background-color: white !important;
+}
+
+.MuiSelect-icon {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+/* Input Labels */
+.MuiInputLabel-root {
+    background-color: transparent;
+    padding: 0 4px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.MuiInputLabel-root.Mui-focused {
+    color: #1976d2;
+}
+
+/* Search Icon */
+.MuiInputAdornment-root .MuiSvgIcon-root {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+/* Card Styles */
+.MuiCard-root {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.MuiCard-root:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Media */
+.MuiCardMedia-root {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.MuiCardMedia-root img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.MuiCard-root:hover .MuiCardMedia-root img {
+    transform: scale(1.05);
+}
+
+/* Card Content */
+.MuiCardContent-root {
+    padding: 16px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .shop-container {
+        margin: 10px;
+        padding: 16px;
+    }
+
+    .filter-box {
+        padding: 16px;
+        margin-bottom: 24px;
+    }
+
+    .MuiInputBase-root {
+        height: 40px;
+    }
+
+    .MuiSelect-select {
+        height: 40px !important;
+    }
+}
+
+/* Enhanced Hover Effect */
+.MuiCard-root:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Glass Effect for Filter Section */
+.filter-section {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Glossy Input Fields */
+.MuiTextField-root, .MuiFormControl-root {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(5px);
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.MuiTextField-root:hover, .MuiFormControl-root:hover {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced Price Tag */
+.MuiTypography-root[color="primary"] {
+    background: linear-gradient(45deg, #2196f3, #21cbf3);
+    color: white !important;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+    transition: all 0.3s ease;
+}
+
+.MuiCard-root:hover .MuiTypography-root[color="primary"] {
+    background: linear-gradient(45deg, #21cbf3, #2196f3);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.5);
+    transform: scale(1.05);
+}
+
+/* Enhanced Stock Badge */
+.stock-badge {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Shiny Button Effect */
+.MuiButton-root {
+    background: linear-gradient(45deg, #2196f3, #21cbf3) !important;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.MuiButton-root::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Enhanced Blink Animation */
+@keyframes blink {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.98);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .shop-container {
+        margin: 10px;
+        padding: 16px;
+    }
+    
+    .filter-section {
+        padding: 15px;
+    }
+    
+    .MuiCard-root {
+        margin-bottom: 20px;
+    }
+}
+
+/* Image Container with Reflection */
+.MuiCardMedia-root {
+    position: relative;
+    overflow: hidden;
+}
+
+.MuiCardMedia-root::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    transform: translateY(50%);
+    transition: transform 0.3s ease-out;
+}
+
+.MuiCard-root:hover .MuiCardMedia-root::after {
+    transform: translateY(0);
+}
+
+/* Loading Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}

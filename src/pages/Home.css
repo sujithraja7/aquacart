@@ -1,0 +1,696 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0581ee, #4bd1d5);
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    backdrop-filter: blur(15px);
+    background: rgba(204, 95, 237, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    color: rgb(7, 6, 6);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Header Styles */
+h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #18f3ef;
+}
+
+p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 2.5rem;
+}
+
+ul,
+ol {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-left: 2rem;
+    text-align: left;
+    color: #de0e0e;
+}
+
+ul li,
+ol li {
+    margin-bottom: 0.8rem;
+}
+
+/* Button Styles */
+button {
+    background: rgba(56, 161, 105, 0.8);
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    outline: none;
+    backdrop-filter: blur(5px);
+}
+
+/* Button Hover Effects */
+button:hover {
+    background: rgba(56, 161, 105, 1);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(56, 161, 105, 0.5);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    button {
+        padding: 0.8rem 1.6rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Animated Ocean Background */
+.home-container {
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #00c6fb 0%,
+        #005bea 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Water Overlay */
+.water-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to right, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.1) 100%),
+        radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation: waterFlow 10s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes waterFlow {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(1deg); }
+    50% { transform: translate(-5px, -5px) rotate(-1deg); }
+    75% { transform: translate(-5px, 5px) rotate(1deg); }
+}
+
+/* Coral Decorations */
+.coral {
+    position: fixed;
+    bottom: -50px;
+    width: 100%;
+    height: 150px;
+    background: 
+        radial-gradient(circle at 20% 100%, #ff6b6b 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, #ff9f43 0%, transparent 50%),
+        radial-gradient(circle at 80% 100%, #ff6b6b 0%, transparent 50%);
+    filter: blur(3px);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* Floating Seaweed */
+.seaweed {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 150px;
+    background: linear-gradient(to top, #4CAF50, #81C784);
+    border-radius: 50% 50% 0 0;
+    animation: seaweedMove 5s ease-in-out infinite;
+    transform-origin: bottom;
+}
+
+.seaweed:nth-child(2n) {
+    height: 120px;
+    animation-delay: -2.5s;
+}
+
+.seaweed:nth-child(3n) {
+    height: 180px;
+    animation-delay: -1.5s;
+}
+
+@keyframes seaweedMove {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    75% { transform: rotate(-8deg); }
+}
+
+/* Enhanced Bubbles */
+.ocean-bubble {
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    border-radius: 50%;
+    animation: oceanBubble 8s linear infinite;
+    pointer-events: none;
+}
+
+.ocean-bubble:nth-child(1) { width: 30px; height: 30px; left: 10%; animation-delay: 0s; }
+.ocean-bubble:nth-child(2) { width: 20px; height: 20px; left: 30%; animation-delay: 2s; }
+.ocean-bubble:nth-child(3) { width: 35px; height: 35px; left: 50%; animation-delay: 4s; }
+.ocean-bubble:nth-child(4) { width: 25px; height: 25px; left: 70%; animation-delay: 6s; }
+.ocean-bubble:nth-child(5) { width: 28px; height: 28px; left: 90%; animation-delay: 8s; }
+
+@keyframes oceanBubble {
+    0% {
+        bottom: -100px;
+        transform: translateX(0) scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(15px) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        bottom: 100vh;
+        transform: translateX(-15px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Bubble Container */
+.bubble-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Bubble Animation */
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  border-radius: 50%;
+  width: var(--size);
+  height: var(--size);
+  animation: bubbleFloat var(--duration) ease-in infinite;
+  animation-delay: var(--delay);
+  opacity: 0;
+}
+
+@keyframes bubbleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0.3);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(-20%) translateX(10px) scale(0.6);
+  }
+  40% {
+    opacity: 0.8;
+    transform: translateY(-40%) translateX(-10px) scale(0.8);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-60%) translateX(10px) scale(1);
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateY(-80%) translateX(-10px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%) translateX(0) scale(0.3);
+  }
+}
+
+/* Add shimmer effect to bubbles */
+.bubble::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 25%;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+/* Content Styles */
+.content-container {
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 2rem;
+}
+
+.content-container h1,
+.content-container h2,
+.content-container p {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+.button {
+    background: linear-gradient(45deg, #00c6fb, #005bea);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #005bea, #00c6fb);
+}
+
+/* Navigation Fish Styles */
+.nav-fish {
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.nav-fish.prev {
+    left: 20px;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.nav-fish.next {
+    right: 20px;
+}
+
+.nav-fish::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    clip-path: path('M60,15 C55,5 45,0 30,0 C15,0 5,5 0,15 C5,25 15,30 30,30 C45,30 55,25 60,15 Z');
+    animation: swimAnimation 2s ease-in-out infinite;
+}
+
+.nav-fish::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 20px;
+    height: 15px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    transform: translateY(-50%);
+    animation: tailAnimation 2s ease-in-out infinite;
+}
+
+@keyframes swimAnimation {
+    0%, 100% {
+        transform: translateX(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-5px) scaleY(0.9);
+    }
+}
+
+@keyframes tailAnimation {
+    0%, 100% {
+        transform: translateY(-50%) scaleX(1);
+    }
+    50% {
+        transform: translateY(-50%) scaleX(0.8);
+    }
+}
+
+/* Hover effects */
+.nav-fish:hover::before {
+    filter: brightness(1.2);
+}
+
+.nav-fish:hover::after {
+    filter: brightness(1.2);
+}
+
+/* Add bubble effect on hover */
+.nav-fish:hover::after {
+    animation: tailAnimation 1s ease-in-out infinite, bubbleEmit 0.5s ease-out;
+}
+
+@keyframes bubbleEmit {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0);
+    }
+}
+
+/* Active state */
+.nav-fish:active::before {
+    transform: scale(0.95);
+}
+
+/* Hide default arrows if any */
+.slick-prev,
+.slick-next {
+    display: none !important;
+}
+
+/* Add small bubbles on click */
+.nav-fish-bubbles {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: riseBubble 1.5s ease-out forwards;
+}
+
+@keyframes riseBubble {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(0, -100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Bubble Background */
+.bubble-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: linear-gradient(
+        to bottom,
+        #006994,
+        #2a9fd6 50%,
+        #006994
+    );
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.4) 40%,
+        rgba(255, 255, 255, 0.2) 70%,
+        transparent
+    );
+    box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 15px rgba(255, 255, 255, 0.2);
+    animation: float-up var(--duration) ease-in infinite;
+    opacity: 0;
+}
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 25%;
+    height: 25%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-20vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Bubble sizes and positions */
+.bubble:nth-child(1) { --duration: 12s; left: 10%; width: 30px; height: 30px; }
+.bubble:nth-child(2) { --duration: 16s; left: 20%; width: 25px; height: 25px; animation-delay: -1s; }
+.bubble:nth-child(3) { --duration: 14s; left: 30%; width: 35px; height: 35px; animation-delay: -2s; }
+.bubble:nth-child(4) { --duration: 18s; left: 40%; width: 20px; height: 20px; animation-delay: -3s; }
+.bubble:nth-child(5) { --duration: 15s; left: 50%; width: 28px; height: 28px; animation-delay: -4s; }
+.bubble:nth-child(6) { --duration: 13s; left: 60%; width: 32px; height: 32px; animation-delay: -5s; }
+.bubble:nth-child(7) { --duration: 17s; left: 70%; width: 22px; height: 22px; animation-delay: -6s; }
+.bubble:nth-child(8) { --duration: 14s; left: 80%; width: 37px; height: 37px; animation-delay: -7s; }
+.bubble:nth-child(9) { --duration: 16s; left: 90%; width: 26px; height: 26px; animation-delay: -8s; }
+.bubble:nth-child(10) { --duration: 15s; left: 15%; width: 29px; height: 29px; animation-delay: -9s; }
+.bubble:nth-child(11) { --duration: 13s; left: 25%; width: 33px; height: 33px; animation-delay: -10s; }
+.bubble:nth-child(12) { --duration: 17s; left: 35%; width: 24px; height: 24px; animation-delay: -11s; }
+.bubble:nth-child(13) { --duration: 14s; left: 45%; width: 31px; height: 31px; animation-delay: -12s; }
+.bubble:nth-child(14) { --duration: 16s; left: 55%; width: 27px; height: 27px; animation-delay: -13s; }
+.bubble:nth-child(15) { --duration: 15s; left: 65%; width: 34px; height: 34px; animation-delay: -14s; }
+
+/* Light rays effect */
+.light-rays {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        80deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.03) 1%,
+        transparent 2%,
+        transparent 4%
+    );
+    animation: rays 8s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes rays {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(50%) rotate(180deg);
+        opacity: 0.3;
+    }
+}
+
+/* Water overlay effect */
+.water-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        0deg,
+        transparent,
+        rgba(255, 255, 255, 0.05)
+    );
+    animation: waterFlow 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes waterFlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-10px);
+    }
+}
+
+/* Deep water particles */
+.deep-particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 5%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 5%);
+    animation: deepParticles 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes deepParticles {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    100% {
+        transform: translateX(100px) rotate(360deg);
+    }
+}
+
+/* Bubbles Animation */
+.bubble {
+    position: fixed;
+    bottom: -20px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: float 8s infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    left: 10%;
+    animation-duration: 6s;
+}
+
+.bubble:nth-child(2) {
+    width: 20px;
+    height: 20px;
+    left: 30%;
+    animation-duration: 4s;
+}
+
+.bubble:nth-child(3) {
+    width: 30px;
+    height: 30px;
+    left: 50%;
+    animation-duration: 7s;
+}
+
+.bubble:nth-child(4) {
+    width: 25px;
+    height: 25px;
+    left: 70%;
+    animation-duration: 5s;
+}
+
+.bubble:nth-child(5) {
+    width: 35px;
+    height: 35px;
+    left: 90%;
+    animation-duration: 8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-400px) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-800px) rotate(360deg);
+        opacity: 0;
+    }
+}
